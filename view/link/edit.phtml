@@ -1,0 +1,64 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><?= T('修改链接') ?></h4>
+      </div>
+      <div class="modal-body">
+        <?= V('form/error', ['form' => $form]) ?>
+        <form id="linkEdit" class="form-horizontal" role="form" action="gini-ajax:ajax/link/edit/<?= $link->id?>">
+          <div class="form-group">
+            <label class="col-sm-2 control-label"><?= T('名称') ?></label>
+            <div class="col-sm-7">
+              <input name="name" type="text" class="form-control" placeholder="<?= T('请输入名称') ?>" value="<?= H($link->name) ?>">
+            </div>
+            <div class="col-sm-3">
+              <select class="form-control" name="type">
+                <?php
+                  foreach (\Gini\ORM\Link::$TYPE as $value => $name) :
+                ?>
+                  <?php if ($value == $link->type) :?>
+                    <option selected="selected" value=<?= H($value) ?>><?= T($name) ?></option>
+                  <?php else :?>
+                    <option value=<?= H($value) ?>><?= T($name) ?></option>
+                  <?php endif;?>
+                <?php 
+                endforeach;
+                ?>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label"><?= T('地址') ?></label>
+            <div class="col-sm-10">
+              <input name="href" type="text" class="form-control" placeholder="<?= T('请输入地址') ?>" value="<?= H($link->href) ?>">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?= T('关闭') ?></button>
+        <button type="submit" class="btn btn-success" form="linkEdit"><?= T('保存') ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-ajax>
+require(['main'], function ($) {
+  if ($('.modal').length > 0) {
+    $(".modal:not(':eq(0)')").remove()
+  }
+  $('.modal').modal('show')
+
+  form = $('form#linkEdit')
+  form.on('ajax-before', function (e) {
+    $('.modal').remove()
+  })
+
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $('.modal').remove()
+  })
+})
+</script>

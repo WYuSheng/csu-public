@@ -1,0 +1,10 @@
+<ul class="nav nav-pills nav-stacked" role="tablist">
+  <?php 
+    $side = \Gini\Config::get('admin.nav')['side'];
+    if ($side) foreach ($side as $nav) :
+  ?>
+    <li role="presentation"><a href="<?= $nav['href'] ?>"><i class="<?= $nav['fa'] ?>" aria-hidden="true"></i></a></li>
+  <?php 
+    endforeach; 
+  ?>
+</ul>

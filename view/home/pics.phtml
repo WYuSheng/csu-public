@@ -1,0 +1,27 @@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+   <!-- 轮播（Carousel）指标 -->
+   <ol class="carousel-indicators">
+      <?php
+      for ($i = 0; $i < $pics->totalCount(); $i ++) :
+      ?>
+        <li data-target="#myCarousel" data-slide-to="<?= $i ?>" class="<?= $i == 0 ? 'active' : '' ?>"></li>
+      <?php 
+      endfor;
+      ?>
+   </ol>  
+   <!-- 轮播（Carousel）项目 -->
+   <div class="carousel-inner">
+      <?php
+        $first = TRUE;
+        if ($pics) foreach ($pics as $index => $pic) :
+      ?>
+      <div class="item <?= $first == TRUE ? 'active' : '' ?>">
+        <img src="<?= $pic->src();?>" alt="...">
+        <div class="carousel-caption"><?= $pic->title;?></div>
+      </div>
+      <?php
+      $first = FALSE;
+      endforeach;
+      ?>
+   </div>
+</div>

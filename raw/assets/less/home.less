@@ -1,0 +1,569 @@
+@import "inc/variables";
+
+/*首页图片*/
+.container-home-header {
+    height: 110px;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+/*导航栏*/
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: @darkblue;
+    border: none;
+}
+.container {
+    width: 1065px;
+    padding: 0;
+}
+.navbar-collapse {
+    padding: 0;
+}
+.navbar-default {
+    .navbar-nav>li>a{
+        margin-left: 30px;
+        padding: 18px 0px;
+        min-width: 86px;
+        text-align: center;
+        color: #FFF;
+        font-size: 16px;
+    }
+    .navbar-nav>li>a:hover,
+    .navbar-nav>.active>a, 
+    .navbar-nav>.active>a:focus, 
+    .navbar-nav>.active>a:hover {
+        color: #FFF;
+        background-color: @lightblue;
+    }
+    .navbar-nav>li>.list-drop,
+    .navbar-nav>li>.list-drop:focus,
+    .navbar-nav>li>.list-drop:hover, {
+        width: 195px;
+        background: #21356c;
+    }
+
+    .navbar-nav>li>a:focus, 
+    .navbar-nav>li>a:hover {
+        color: #FFF;
+        background-color: @lightblue;
+    }
+
+    .navbar-nav>.open>a, 
+    .navbar-nav>.open>a:focus,
+    .navbar-nav>.open>a:hover {
+        color: #FFF;
+        background-color: #21356c;
+    }
+}
+
+/*图片轮播*/
+div#myCarousel{
+    width: 764px;
+    display: inline-block;
+    .carousel-indicators {
+        width: 100%;
+        left: 580px;
+        bottom: 3px;
+        z-index: 1;
+    }
+    .carousel-indicators li {
+        width: 11px;
+        height: 11px;
+        border: 0;
+        background-color: #414345;
+    }
+    .carousel-caption {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        z-index: 10;
+        width: 100%;
+        height: 45px;
+        line-height: 15px;
+        color: #fff;
+        text-align: right;
+        padding-right: 100px;
+        background-color: rgba(0,0,0,0.6);
+    }
+
+    .carousel-indicators .active {
+        background-color: white;
+    }
+
+    img{
+        padding: 0;
+        height: 384px;
+        width: 764px;
+    }
+}
+
+/*首页标题*/
+.homepage-title {
+    a {
+        margin-top: 0;
+        color: #333333;
+        font-size: 18px;
+    }
+    a.active {
+        color: @darkblue;
+    }
+    small a,
+    small a:hover {
+        color: #abaeb0;
+        font-size: 16px;
+        text-decoration: none;
+    }
+}
+
+/*首页其他文字*/
+.title1 {
+    margin: 15px 0 0 0;
+    font-size: 14px;
+    color: #545658;
+}
+.title2 {
+    font-size: 16px;
+    color: #3d414e;
+}
+
+/*登陆表单*/
+.login-div {
+    display: inline-block;
+    width: 297px;
+    height: 384px;
+    position: absolute;
+    background-color: #f7f7f7;
+    h4 {
+        font-size: 17px;
+        color: #00334d;
+    }
+    .input-login {
+        height: 40px;
+    }
+    .submit-login {
+        width: 100%;
+        height: 42px;
+        color: #FFF;
+        font-size: 17px;
+        background-color: @darkblue;
+        border-radius: 7px;
+    }
+    .a-login {
+        text-decoration: none;
+        color: #5a6d76;
+        font-size: 16px;
+        z-index: 2;
+        position: absolute;
+    }
+}
+
+/*通知公告*/
+.media-left {
+    padding-right:18px;
+ }
+.date {
+    width: 88px;
+    height: 88px;
+    background-color: #e3eef4;
+    color: @darkblue;
+    font-size: 14px;
+    h2 {
+        font-weight: 400;
+        margin: 0;
+        padding-top: 15px;
+        color: @darkblue;
+        font-size: 34px;
+    }
+}
+.media-body {
+    color: #a1a1a1;
+    font-size: 13px;
+    .media-heading {
+        color: #333333;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+}
+
+/*首页仪器*/
+.eq-rank {
+    display: inline-block;
+    width: 174px;
+    margin-right: 45px;
+    position: relative;
+    img.rank {
+        position: absolute;
+        left: 10px;
+        top: 0px;
+    }
+    span.rank {
+        position: absolute;
+        top: 3px;
+        left: 13px;
+        font-weight: 400;
+        font-size: 18px;
+        color: white;
+        font-style: italic;
+    }
+    div.text-left {
+        color: #a1a1a1;
+        margin-top: 20px;
+        float: left;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 50%;
+    }
+    div.text-right {
+        color: #a1a1a1;
+        margin-top: 20px;
+        float: right;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 50%;
+    }
+}
+.eq-rank:last-child {
+    margin-right: 0;
+}
+
+/*友情链接*/
+.links {
+    h3 {
+        margin: 30px 0 20px;
+        font-size: 22px;
+        color: #707072;
+    }
+    .link {
+        display: inline-block;
+        width: 200px;
+    }
+    .link>a, 
+    .link>a:focus, 
+    .link>a:hover {
+        font-size: 13px;
+        color: #707072;
+    }
+}
+
+/*路径条*/
+.breadcrumb {
+    margin-top: 36px;
+    margin-bottom:13px;
+    padding: 0;
+    background-color: #ffffff;
+}
+.breadcrumb>li+li:before {
+    padding: 0 5px;
+    color: #a1a1a1;
+    content: ">> ";
+}
+.breadcrumb>li>a,
+.breadcrumb>li>a:active,
+.breadcrumb>li>a:hover,
+.breadcrumb>li>a:focus, 
+.breadcrumb>li>a:visited {
+    color: #a1a1a1;
+    text-decoration: none
+}
+.breadcrumb>.active> {
+    color: @darkblue;
+}
+
+/*首页其他通用*/
+.public-list {
+    min-height: 617px;
+}
+
+.search-div {
+    display: block;
+}
+.search-btn {
+    height: 39px;
+    width: 97px;
+    border-radius: 0;
+    background-color: @darkblue;
+    font-size: 14px;
+    color: #FFF;
+}
+.search-btn:hover,
+.search-btn:focus {
+    color: #FFF;
+}
+.search-input {
+    border-radius: 0;
+    height: 39px;
+}
+.search-list {
+    width: 336px;
+    display: inline-block;
+    margin-right: 17px;
+    div {
+        display: block;
+        height: 37px;
+        border-bottom: 1px solid #ddd;
+        line-height: 37px;
+        color: #000;
+        text-decoration: none;
+        img {
+            padding: 0 5px;
+        }
+    }
+}
+
+.member-list {
+    a {
+        display: block;
+        padding-left: 10px;
+        height: 37px;
+        background-color: #f4f5f8;
+        line-height: 37px;
+        border: 1px solid #e9ebef;
+        text-decoration: none;
+        color: #333333;
+        i {
+            float: right;
+            line-height: 37px;
+            padding-right: 20px;
+        }
+    }
+    a:active,
+    a:hover,
+    a:focus,
+    a:visit {
+        text-decoration: none;
+    }
+
+}
+/*技术资料*/
+.download-title {
+    border-bottom: 1px dashed #d9d9d9;
+    h4{
+        font-size: 17px;
+        display: inline-block;
+        color: #333;
+        margin: 21px 0;
+    }
+    small {
+        color: #a1a1a1;
+        font-size: 15px;
+        padding-left: 20px;
+        font-weight: 300;
+    }
+}
+
+/*信息发布*/
+.article-left {
+    width: 195px;
+    margin-top: 32px;
+    padding: 0;
+    border: 1px solid @darkblue;
+    .text-center {
+        background-color: @darkblue;
+        height: 58px;
+        line-height: 58px;
+        color: #ffffff;
+        font-size: 17px;
+    }
+    a,
+    a:active,
+    a:hover,
+    a:focus, 
+    a:visited {
+        text-decoration: none;
+    }
+    a>h4 {
+        margin: 24px;
+        text-align: center;
+        color: #a2a2a2;
+        font-size: 17px;
+        font-weight: 200;
+    }
+    a.active>h4 {
+        border-left: 7px solid @lightblue;
+        color: @darkblue;
+    }
+}
+.article-right {
+    padding-left: 44px;
+    .media {
+        margin: 0px;
+        padding: 28px 0 23px;
+        border-bottom: 1px solid #d9d9d9;
+        .article-date{
+            color: @darkblue;
+            h2 {
+                margin: 8px 0;
+                font-size: 28px;
+                font-weight: 300;
+            }
+        }
+        .media-body {
+            font-size: 13px;
+            line-height: 21px;
+        }
+    }
+}
+
+/*开放仪器*/
+.equipment-left {
+    width: 195px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0;
+    border: 1px solid @darkblue;
+    .text-center {
+        background-color: @darkblue;
+        height: 48px;
+        line-height: 48px;
+        color: #ffffff;
+        font-size: 17px;
+    }
+    a,
+    a:active,
+    a:hover,
+    a:focus, 
+    a:visited {
+        display: block;
+        padding: 10px;
+        border-bottom: 1px solid #eeeeee;
+        color: #898989;
+        font-size: 13px;
+        font-weight: 200;
+        text-decoration: none;
+    }
+    a.active {
+        color: @darkblue;
+    }
+}
+
+.equipment-right {
+    padding: 0px;
+    width: 860px;
+    .media {
+        display: inline-block;
+        margin: 0px 0px 30px 42px;
+        padding: 0;
+        border: 1px solid #dedede;
+        .media-left{
+            padding: 0px;
+            img {
+                width: 117px;
+                height: 117px;
+            }
+        }
+        .media-body {
+            width: 255px;
+            padding: 12px;  
+            .media-heading {
+                font-size: 17px;
+                color: #454545;
+            }
+            p {
+                margin-bottom: 3px;
+                font-size: 13px;
+                color: #454545;
+            }
+        }
+    }
+}
+
+/*仪器详情*/
+
+.equipment-detail {
+    padding: 0px;
+    .equipment-title {
+        margin: 22px 0 18px 0;
+        font-size: 20px;
+        color: #454545;
+    }
+    .container-fluid {
+        margin-left: 42px;
+        padding: 0px;
+        .equipment-table {
+            width: 100%;
+            tr {
+                td {
+                    padding: 8px 0 8px 5px;
+                    border: 4px solid #ffffff;
+                    border-right: 0;
+                    font-size: 14px;
+                }
+
+                td:nth-child(odd) {
+                    width: 15%;
+                    color: #ffffff;
+                    background-color: #ababab;
+                }
+
+                td:nth-child(even) {
+                    background-color: #f7f7f7;
+                }
+            }
+        }
+        .equipment-des {
+            padding: 23px 10px;
+            p {
+                padding: 0 20px;
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+.blue-btn,
+.blue-btn:active,
+.blue-btn:focus,
+.blue-btn:hover,
+.blue-btn:visited {
+    display: inline-block;
+    background-color: #546fc9;
+    margin-right: 4px;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    line-height: 26px;
+    text-decoration: none;
+}
+
+/*平台成员*/
+.member-background {
+    background-image: url(/assets/img/building.png);
+    background-repeat: no-repeat;
+    background-position-x: 85%;
+    background-position-y: bottom;
+}
+.member {
+    display: inline-block;
+    margin: 0 24px 15px 0;
+    width: 309px;
+    height: 52px;
+    border: 1px dashed #d9d9d9;
+    background-color: #EEEEEE;
+
+    a,
+    a:active,
+    a:focus,
+    a:hover,
+    a:visited {
+        padding-left: 16px;
+        line-height: 52px;
+        color: #333333;
+        font-size: 15px;
+        text-decoration: none;
+        i {
+            float: right;
+            line-height: 52px;
+            padding-right: 18px;
+        }
+    }
+}
+
+
+

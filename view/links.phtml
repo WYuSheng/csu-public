@@ -1,0 +1,10 @@
+<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px; background-color: #e9e9e9;height:125px">
+  <div class="container links">
+    <h3><?= T('友情链接');?></h3>
+    <?php foreach($links as $link) : ?>
+      <div class="link">
+        <a href="<?= $link->href?>"><?= H($link->name) . "&nbsp;&nbsp;&nbsp;>" ?></a>
+      </div>
+    <?php endforeach;?>
+  </div>
+</nav>

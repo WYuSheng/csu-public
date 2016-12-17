@@ -1,0 +1,22 @@
+---
+nav:
+  side:
+    - name: 返回首页
+      href: /
+      fa: fa fa-home
+    - name: 用户管理
+      href: admin/user
+      fa: fa fa-users
+    - name: 信息发布
+      href: admin/article
+      fa: fa fa-file
+    - name: 技术资料
+      href: admin/download
+      fa: fa fa-download
+    - name: 图片轮播
+      href: admin/image
+      fa: fa fa-picture-o
+    - name: 友情链接
+      href: admin/link
+      fa: fa fa-link
+...

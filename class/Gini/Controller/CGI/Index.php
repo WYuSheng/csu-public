@@ -1,0 +1,27 @@
+<?php
+
+namespace Gini\Controller\CGI;
+
+class Index extends Layout\Home {
+
+    function __index() {
+        $pics = those('image');
+
+        $searchLength = 18;
+        $search_db = those('search')->orderBy('count', 'd')->limit($searchLength);
+        $searchs = [];
+		foreach ($search_db as $value) {
+			$searchs[] = ['name' => $value->name, 'count' => $value->count];
+		}
+    	$searchs = array_pad($searchs, $searchLength, ['name' => '--', 'count' => 0]);
+
+        $members = those('link')->whose('type')->is(\Gini\ORM\Link::TYPE_MEMBER)->limit(8);
+
+        $this->view->body->content = V('home/homepage', [
+            'pics' => $pics,
+            'searchs' => $searchs,
+            'members' => $members,
+        ]);
+    }
+
+}

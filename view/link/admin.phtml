@@ -1,0 +1,76 @@
+<div class="container">
+  <h2 style="margin-bottom: 20px;">
+    <small><?= H(\Gini\Config::get('site.short'))?></small>
+    <br />
+    <?= T('链接管理') ?>
+  </h2>
+  <div class="row">
+    <div class="col-md-3">
+      <form role="search" method="post">
+        <div class="form-group has-feedback">
+            <input type="text" class="form-control" name="keyword" placeholder="<?= T('查询友情链接') ?>">
+            <span class="glyphicon glyphicon-search form-control-feedback" 
+            aria-hidden="true" style="color: #AAA"></span>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-9">
+      <div class="btn-group pull-right">
+        <a href="admin/link" class="btn btn-default">
+          <?= T('全部') ?>
+        </a>
+        <?php foreach (\Gini\ORM\Link::$TYPE as $key => $type) :?>
+          <a href="admin/link/<?= H($key) ?>" class="btn btn-default">
+            <?= T($type) ?>
+          </a>
+        <?php endforeach;?>
+        <a href="gini-ajax:ajax/link/add" class="btn btn-default" style="height: 34px;">
+          <i class="fa fa-plus" aria-hidden="true" style="line-height: 22px;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <?= V('message') ?>
+  <table class="table table-hover">
+    <thead>
+      <th>#</th>
+      <th><?= T('名称') ?></th>
+      <th><?= T('连接') ?></th>
+      <th><?= T('类型') ?></th>
+      <th><?= T('添加时间') ?></th>
+      <th><?= T('操作') ?></th>
+    </thead>
+    <tbody>
+      <?php
+      if ($links) foreach ($links as $index => $link) :
+      ?>
+      <tr>
+        <td><?= H($index) ?></td>
+        <td><?= H($link->name) ?></td>
+        <td><?= H($link->href) ?></td>
+        <td><?= T(\Gini\ORM\Link::$TYPE[$link->type]) ?></td>
+        <td><?= H($link->ctime) ?></td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning ">
+              <a href="gini-ajax:ajax/link/edit/<?= $link->id?>"  style="color:#FFF">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </a>
+            </button>
+            <button type="button" class="btn btn-danger ">
+              <a href="gini-ajax:ajax/link/delete/<?= $link->id?>" style="color:#FFF">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </a>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <?php
+      endforeach;
+      ?>
+    </tbody>
+  </table>
+</div>
+    </tbody>
+  </table>
+</div>

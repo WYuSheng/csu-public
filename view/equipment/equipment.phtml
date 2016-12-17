@@ -1,0 +1,22 @@
+<?php
+if ($equipments) foreach ($equipments as $equipment) :
+?>
+<div class="media" data-id="<?= $equipment['id'] ?>">
+  <div class="media-left">
+    <img alt="<?= H($equipment['name']);?>" src="<?= $equipment['icon128_url'];?>">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;width: 236px;"><?= T($equipment['name']) ?></h4>
+    <p><?= T('型&nbsp;&nbsp;&nbsp;号:&nbsp;') . H($equipment['model_no']);?></p>
+    <p><?= T('联系人:&nbsp;') . H($equipment['contact']); ?></p>
+    <?php if ($equipment['accept_reserv']) : ?>
+    <a href="<?= H($equipment['reserv_url'])?>" class="blue-btn"><?= T('约') ?></a>
+    <?php endif; ?>
+    <?php if ($equipment['accept_sample']) : ?>
+    <a href="<?= H($equipment['sample_url'])?>" class="blue-btn"><?= T('样') ?></a>
+    <?php endif; ?>
+  </div>
+</div>
+<?php
+endforeach;
+?>

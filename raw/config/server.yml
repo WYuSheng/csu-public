@@ -1,0 +1,8 @@
+---
+home: http://202.197.71.167/lims
+login: http://202.197.71.167/lims/login
+signup: http://202.197.71.167/lims/!labs/signup
+recovery: http://202.197.71.167/lims/recovery
+current_user: http://202.197.71.167/lims/current_user
+caslogin: http://202.197.71.167/lims/csu/cas/login
+...

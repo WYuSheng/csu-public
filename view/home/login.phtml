@@ -1,0 +1,35 @@
+<div class="login-div">
+	<h4 style="background-color: #e3eef4;margin: 0;height: 46px;line-height: 46px;">
+		<img src="assets/img/user.png" style="padding: 0 17px;"><?= H(T('用户登录'))?>
+	</h4>
+	<a href="<?= \Gini\Config::get('server.caslogin')?>" style="text-decoration: none;">
+		<h4 style="
+			width: 225px;
+		    height: 54px;
+		    margin: 10px auto;
+		    text-align: center;
+		    line-height: 54px;
+		    background-color: #0093dd;
+		    border-radius: 10px;
+		    color: #FFF;
+		    font-size: 20px;">
+			<?= H(T('本校师生登录'))?>
+			<img src="assets/img/leftarrow.png" style="top: -2px;position: relative;left: 10px;">
+		</h4>
+	</a>
+	<div style="height: 1px;background-color: #CCCCCC;width: 90%;margin: 0 auto;"></div>
+	<form class="form-login" style="margin: 0 auto;width: 225px;" role="form" action="<?= \Gini\Config::get('server.login')?>">
+		<h4 style="margin-top: 22px;"><?= H(T('校外注册用户登录'))?></h4>
+    <div class="form-group" style="margin-top: 16px;margin-bottom: 0px;">
+      <input type="text" name="token" class="form-control input-login" placeholder="<?= T('用户名') ?>">
+    </div>
+    <div class="form-group" style="margin-top: 8px;">
+      <input type="password" name="password" class="form-control input-login" placeholder="<?= T('密码') ?>">
+    </div>
+    <div class="form-group" style="margin-bottom: 17px;">
+      <input type="submit" name="submit" class="btn btn-default submit-login" value="<?= T('登录') ?>" />
+    </div>
+  	<a href="<?= \Gini\Config::get('server.signup')?>" class="a-login" ><?= T('注册用户') ?></a>
+  	<a href="<?= \Gini\Config::get('server.recovery')?>" class="a-login" style="right: 35px;" ><?= T('忘记密码') ?></a>
+  </form>
+</div>

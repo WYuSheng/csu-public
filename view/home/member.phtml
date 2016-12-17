@@ -1,0 +1,17 @@
+<div class="member-div col-sm-4">
+  <h3 class="homepage-title" style="margin-bottom: 17px;font-size: 18px;display: inline-block;">
+    <?= T('开放平台成员') ?>
+  </h3>
+  <form class="form-inline" role="form" method="post" action="member/list">
+	  <div class="form-group">
+	    <input type="text" name="member_name" class="form-control search-input" id="tag-search" placeholder="名称" style="width: 203px;margin-right: 10px;">
+	  </div>
+	  <button type="submit" class="btn search-btn"><?= H(T('搜索'))?></button>
+	</form>
+	<div class="member-list">
+    <a href="<?= \Gini\Config::get('server.home');?>"><?= T(\Gini\Config::get('site.title'));?><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<?php foreach ($members as $member) : ?>
+			<a href="<?= $member->href?>"><?= H(T($member->name));?><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<?php endforeach;?>
+	</div>
+</div>

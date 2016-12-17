@@ -1,0 +1,43 @@
+<div class="search-div col-sm-8" style="padding: 0px;">
+  <h3 class="homepage-title" style="margin-bottom: 17px;font-size: 18px;display: inline-block;">
+    <?= T('查询开放仪器分类标签') ?>
+  </h3>
+  <form id="search_form" class="form-inline" role="form" style="width: 400px;margin-right: 0px;" method="post" action="equipment/list">
+    <div class="form-group">
+      <input type="text" class="form-control search-input" id="tag-search" name="search_text" placeholder="名称" style="width: 275px;margin-right: 10px;">
+    </div>
+    <button type="submit" class="btn search-btn"><?= H(T('找仪器'))?></button>
+  </form>
+
+  <div class="search-list">
+  <?php $lists = array_chunk($searchs,9);?>
+  <?php foreach ($lists[0] as $value) : ?>
+    <div class="search" href="">
+      <img src="assets/img/nail.png">
+      <span><?= H($value['name'])?></span>
+      <span style="float: right;"><?= H($value['count'].'次')?></span>
+    </div>
+  <?php endforeach; ?>
+  </div>
+  <div class="search-list">
+  <?php foreach ($lists[1] as $value) : ?>
+    <div class="search" href="">
+      <img src="assets/img/nail.png">
+      <span><?= H($value['name'])?></span>
+      <span style="float: right;"><?= H($value['count'].'次')?></span>
+    </div>
+  <?php endforeach; ?>
+  </div>
+</div>
+<script>
+  require(['main'], function ($) {
+  	$("div.search").click(function () {
+  		var $search_text = $(this).children('span').eq(0).text()
+  		if ($search_text != '--') {
+	  		$("#tag-search").val($search_text)
+	  		$("#search_form").submit()
+  		}
+  	})
+
+  })
+</script>

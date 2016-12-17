@@ -1,0 +1,50 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><?= T('添加图片') ?></h4>
+      </div>
+      <div class="modal-body">
+        <?= V('form/error', ['form' => $form]) ?>
+        <form id="imageAdd" role="form" method="post" action="admin/image/add" enctype="multipart/form-data">
+          <div class="form-group">
+            <div class="col-sm-12" style="padding-left: 0px;">
+              <input type="text" name="title" class="form-control" placeholder="<?= H(T('图片描述')) ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="file">
+              <?= H(T('请选择要上传的附件')) ?>
+            </label>
+            <span style="color: #BDBDBD;"><?= H(T(' (轮播图片建议尺寸: 750 X 350 px)')) ?></span>
+            <input id="file" type="file" name="file">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?= T('关闭') ?></button>
+        <button type="submit" class="btn btn-success" form="imageAdd"><?= T('保存') ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-ajax>
+require(['main', 'fileinput', 'assets/js/locales/zh.js', 'css!../css/fileinput'], function ($) {
+  if ($('.modal').length > 0) {
+    $(".modal:not(':eq(0)')").remove()
+  }
+  $('.modal').modal('show')
+
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $('.modal').remove()
+  })
+
+  $("#file").fileinput({
+    language: 'zh',
+    showUpload: false,
+    allowedFileTypes: ['image']
+  })
+})
+</script>

@@ -1,0 +1,18 @@
+<?php foreach ($articles as $article) :?>
+  <div class="col-md-4 article-content" style="padding:0 19px 0 0;">
+    <div class="media">
+      <div class="media-left">
+        <div class="date">
+          <h2 class="text-center"><?= H(date('d', strtotime($article->ctime)));?></h2>
+          <div class="text-center"><?= H(date('Y.m', strtotime($article->ctime)));?></div>
+        </div>
+      </div>
+      <div class="media-body">
+        <a href="article/content/<?= $article->id?>" style="color:#333333;text-decoration: none;">
+          <h4 class="media-heading"><?= mb_substr(strip_tags($article->title), 0 ,28);?></h4>
+          <?= mb_substr(strip_tags($article->content), 0, 130); ?>
+        </a>
+      </div>
+    </div>
+  </div>
+<?php endforeach;?>

@@ -1,0 +1,82 @@
+<div class="container public-list">
+  <div class="col-md-2 equipment-left"> 
+    <div class="text-center" ><?= T("仪器分类");?></div>
+    <a href="equipment/list" class="<?=empty($group)?'active':''?>"><?= T("全部仪器");?></a>
+  </div>
+  <div class="col-md-9 equipment-detail">
+    <ol class="breadcrumb" style="margin: 20px 42px;">
+      <li><a href="equipment/list"><?= T('开放仪器');?></a></li>
+      <li class="active"><?= T('仪器详情');?></li>
+    </ol>
+    <h3 class="text-center equipment-title">
+      <?= T($equipment['name']) ?>
+      <?php if ($equipment['accept_sample']) : ?>
+      <a href="<?= H($equipment['sample_url'])?>" class="blue-btn" style="float:right"><?= T('样') ?></a>
+      <?php endif; ?>
+      <?php if ($equipment['accept_reserv']) : ?>
+      <a href="<?= H($equipment['reserv_url'])?>" class="blue-btn" style="float:right"><?= T('约') ?></a>
+      <?php endif; ?>
+    </h3>
+    <div class="container-fluid equipment-info">
+      <div class="col-md-4" style="width: 220px;padding:0px;">
+          <img class="text-center" alt="<?= T($equipment['name']) ?>" style="height:220px;width:220px"
+          src="<?= T($equipment['icon128_url']) ?>">
+      </div>
+      <div class="col-md-8" style="width: 532px;padding: 0 0 0 7px;">
+        <table class="equipment-table">
+          <tr>
+            <td><?= T('联系人') ?></td>
+            <td><?= T($equipment['contact']) ?></td>
+          </tr>
+          <tr>
+            <td><?= T('邮箱') ?></td>
+            <td><?= T($equipment['email']) ?></td>
+          </tr>
+          <tr>
+            <td><?= T('电话') ?></td>
+            <td><?= T($equipment['phone']) ?></td>
+          </tr>
+          <tr>
+            <td><?= T('生产厂家') ?></td>
+            <td><?= T($equipment['manufacturer']) ?></td>
+          </tr>
+          <tr>
+            <td><?= T('型号') ?></td>
+            <td><?= T($equipment['model_no']) ?></td>
+          </tr>
+          <tr>
+            <td><?= T('购买日期') ?></td>
+            <td><?= date('Y.m.d', $equipment['purchased_date']) ?></td>
+          </tr>
+        </table>
+        <div class="equipment-des">
+          <h5><?= T('主要规格及技术指标') ?></h5>
+          <p><?= $equipment['tech_specs'] ?></p>
+          <h5><?= T('主要功能及特色') ?></h5>
+          <p><?= $equipment['features'] ?></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+require(['main'], function ($) {
+  var group = <?= $group ? : 0 ?>;
+
+  var start = 0
+
+  $.post('ajax/equipment/tags', function (e) {
+    var tags = $.parseJSON(e)
+    $.each(tags, function (index, item) {
+      var  a = $(document.createElement('a'))
+      a.attr('href', 'equipment/list/' + index)
+      a.text(item.name)
+      if (group == index) {
+        a.addClass('active')
+      }
+      $('div.equipment-left').append(a)
+    })
+  })
+})
+</script>

@@ -1,0 +1,14 @@
+<?php 
+if ($form['_errors']): ?>
+<div class="alert alert-danger alert-dismissible" role="alert">
+<?php
+if ($form['_errors']) foreach ($form['_errors'] as $key => $error) :
+?>
+    <p><?= T(H($error)) ?></p>
+<?php 
+endforeach;
+?>
+</div>
+<?php
+endif;
+?>

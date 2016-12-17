@@ -1,0 +1,18 @@
+<div class="container public-list member-background">
+  <div class="col-md-12" style="padding:0;">
+    <ol class="breadcrumb" style="margin-bottom: 18px;">
+      <li><a href="member/list"><?= T('校级平台');?></a></li>
+    </ol>
+    <div class="member">
+      <a href="<?= \Gini\Config::get('server.home');?>"><?= T(\Gini\Config::get('site.title'));?><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>
+    <ol class="breadcrumb" style="margin-bottom: 18px;">
+      <li><a href="member/list"><?= T('院级平台');?></a></li>
+    </ol>
+    <?php foreach($links as $link) :?>
+      <div class="member">
+        <a href="<?= H($link->href);?>"><?= H($link->name);?><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+      </div>
+    <?php endforeach;?>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h2 style="margin-bottom: 20px;">
+    <small><?= H(\Gini\Config::get('site.short'))?></small>
+    <br />
+    <?= T('首页轮播') ?>
+  </h2>
+  <div class="row" style="height: 49px;">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <div class="btn-group pull-right">
+        <a href="gini-ajax:ajax/image/add" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <?= V('message') ?>
+  <div class="row">
+  <?php
+  if ($images) foreach ($images as $image) :
+  ?>
+    <div class="col-sm-6 col-md-4" >
+      <div class="thumbnail">
+        <img src="<?= $image->src() ?>" style="width: 350px;height: 150px;">
+        <div class="caption text-right">
+          <h4 class="text-left"><?= H($image->title) ?></h4>
+          <a href="gini-ajax:ajax/image/delete/<?= $image->id?>" class="btn btn-danger" role="button">
+            <i class="fa fa-times" aria-hidden="true"></i> <?= T('删除') ?>
+          </a>
+        </div>
+      </div>
+    </div>
+  <?php
+  endforeach;
+  ?>
+  </div>
+</div>

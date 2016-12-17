@@ -1,0 +1,52 @@
+<div class="container">
+  <h2 style="margin-bottom: 20px;">
+    <small><?= H(\Gini\Config::get('site.short'))?></small>
+    <br />
+    <?= T('文件管理') ?>
+  </h2>
+  <div class="row" style="height: 49px;">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-9">
+      <div class="btn-group pull-right">
+        <a href="gini-ajax:ajax/download/add" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <?= V('message') ?>
+
+  <table class="table table-hover">
+    <thead>
+      <th>#</th>
+      <th><?= T('标题') ?></th>
+      <th><?= T('类型') ?></th>
+      <th><?= T('发布时间') ?></th>
+      <th><?= T('操作') ?></th>
+    </thead>
+    <tbody>
+      <?php
+      if ($downloads) foreach ($downloads as $index => $download) :
+      ?>
+      <tr>
+        <td><?= H($index) ?></td>
+        <td><?= H($download->title) ?></td>
+        <td><?= H($download->fileExtension) ?></td>
+        <td><?= H($download->ctime) ?></td>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger">
+              <a href="gini-ajax:ajax/download/delete/<?= $download->id?>" style="color:#FFF">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </a>
+            </button>
+          </div>
+        </td>
+      </tr>
+      <?php
+      endforeach;
+      ?>
+    </tbody>
+  </table>
+</div>

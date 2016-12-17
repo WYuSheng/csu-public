@@ -1,0 +1,69 @@
+<div class="container public-list">
+  <div class="col-md-2 equipment-left"> 
+    <div class="text-center" ><?= T("仪器分类");?></div>
+    <a href="equipment/list" class="<?=empty($tag)?'active':''?>"><?= T("全部仪器");?></a>
+  </div>
+  <div class="col-md-9 equipment-right">
+    <ol class="breadcrumb" style="margin: 20px 42px;">
+      <li><a href="equipment/list"><?= T('开放仪器');?></a></li>
+      <li class="active"><?= T('全部仪器').($searchtext ? ' [关键词：'.$searchtext.']' : '');?></li>
+    </ol>
+    <div class="row equ-list" style="overflow-y: scroll;height: 545px;">
+      <div class="clearfix">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+require(['main'], function ($) {
+  var tag = <?= $tag ? : 0 ?>;
+  var searchtext = "<?= $searchtext ? : '' ?>"
+
+  var start = 0
+  var canLoad = false
+  var complete = false
+
+  $.post('ajax/equipment/tags', function (e) {
+    var tags = $.parseJSON(e)
+    $.each(tags, function (index, item) {
+      var  a = $(document.createElement('a'))
+      a.attr('href', 'equipment/list/' + index)
+      a.text(item.name)
+      if (tag == index) {
+        a.addClass('active')
+      }
+      $('div.equipment-left').append(a)
+    })
+  })
+
+  $.post('ajax/equipment/equipments', { tag: tag, start: start, searchtext: searchtext }, function (e) {
+    if (e.length == 0) {
+      complete = true
+      return
+    }
+
+    $('.equ-list .clearfix').append(e)
+    start += 10
+    canLoad = true
+  })
+
+  $('div.equ-list').scroll(function () {
+    if ($(this).children('.clearfix').height() - $(this).scrollTop() <= 555 && canLoad && !complete) {
+      canLoad = false
+      $.post('ajax/equipment/equipments', { tag: tag, start: start, searchtext: searchtext}, function (e) {
+        if (e.length == 0) {
+          complete = true
+          return
+        }
+
+        $('.equ-list .clearfix').append(e)
+        start += 10
+        canLoad = true
+      })
+    }
+  }).on('click', '.media', function () {
+    var id = $(this).data('id')
+    window.location.href = 'equipment/' + id
+  })
+})
+</script>

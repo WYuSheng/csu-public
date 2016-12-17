@@ -1,0 +1,78 @@
+<div class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title"><?= T('添加文章') ?></h4>
+      </div>
+      <div class="modal-body">
+        <?= V('form/error', ['form' => $form]) ?>
+        <form id="articleAdd" class="form-horizontal" role="form" method="post" action="admin/article/add">
+          <div class="form-group" style="margin-left: 0; margin-right: 0;">
+            <div>
+              <label class="control-label"><?= T('标题') ?></label>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <input name="title" type="text" class="form-control" placeholder="<?= T('请输入标题') ?>">
+              </div>
+              <div class="col-md-3">
+                <select class="form-control" name="type">
+                  <?php
+                  if ($types) foreach ($types as $value => $name) :
+                  ?>
+                  <option value=<?= H($value) ?>><?= T($name) ?></option>
+                  <?php 
+                  endforeach;
+                  ?>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="margin-left: 0; margin-right: 0;">
+            <label class="control-label"><?= T('内容') ?></label>
+            <textarea id="editor" name="content"><?= $content ?></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?= T('关闭') ?></button>
+        <button type="submit" class="btn btn-success" form="articleAdd"><?= T('保存') ?></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-ajax>
+require(['main', 'kindeditor', 'css!../css/default'], function($, K) {
+  KindEditor.create('#editor', {
+    width: '100%',
+    height: '400px',
+    items: [
+      'source', '|', 'justifyleft', 'justifycenter', 'justifyright',
+      'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|', 'fullscreen',
+      'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+      'italic', 'underline', 'strikethrough', 'lineheight', '/', 'link', 'unlink', 'image', 'multiimage',
+      'insertfile', 'table'
+    ],
+    resizeType: 1,
+    uploadJson: 'ajax/editor/upload',
+    basePath: 'assets/',
+    themesPath: 'assets/css/'
+  })
+
+  if ($('.modal').length > 0) {
+    $(".modal:not(':eq(0)')").remove()
+  }
+  $('.modal').modal('show')
+
+  form = $('form#articleAdd')
+  form.on('ajax-before', function (e) {
+    $('.modal').remove()
+  })
+
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $('.modal').remove()
+  })
+})
+</script>

@@ -1,0 +1,9 @@
+---
+csu_public:
+  driver: redis
+  options:
+    key_prefix: 'csu_public#'
+    servers:
+    - host: 172.17.42.1
+      port: 6379
+...

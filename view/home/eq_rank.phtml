@@ -1,0 +1,46 @@
+<div id="eq_rank" class="container" style="margin-top: 38px; margin-bottom: 17px;">
+  <h3 class="homepage-title" style="margin-top: 0px;margin-bottom: 20px;font-size: 18px;">
+    <?= T('仪器预约排行榜') ?>
+    <small class="pull-right">
+      <a href="equipment/list"><?= T('更多>>') ?></a>
+    </small>
+  </h3>
+</div>
+<script>
+require(['main'], function ($) {
+  $.post('ajax/equipment/equipmentrank', function (e) {
+    var ranks = $.parseJSON(e)
+    $.each(ranks, function (index, item) {
+      var  div = $(document.createElement('div')),
+        img = $(document.createElement('img')),
+        img2 = $(document.createElement('img')),
+        span = $(document.createElement('span')),
+        divchild = $(document.createElement('div'))
+        divchild2 = $(document.createElement('div'))
+
+      div.addClass('eq-rank')
+      img.attr('src',item.icon128_url)
+      img.css({
+        width:"174px",
+        height:"174px"
+      })
+      divchild.addClass('text-left');
+      divchild.text(item.name)
+      divchild2.addClass('text-right');
+      divchild2.text(item.use + '次')
+
+      div.append(img)
+      img2.attr('src',"assets/img/flag.png")
+      img2.addClass('rank')
+      span.text('0' + (index + 1))
+      span.addClass('rank')
+      div.append(img2)
+      div.append(span)
+      div.append(divchild)
+      div.append(divchild2)
+
+      $('#eq_rank').append(div)
+    })
+  })
+})
+</script>

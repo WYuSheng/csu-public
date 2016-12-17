@@ -1,0 +1,13 @@
+<div class="container public-list">
+<ol class="breadcrumb" style="margin-bottom: 13px;">
+  <li><a href="datum/list"><?= T('技术资料');?></a></li>
+</ol>
+<?php if($downloads) foreach($downloads as $download) :?>
+  <div class="download-title">
+    <a href="download/content/<?= $download->id?>" style="text-decoration: none;">
+      <h4><?= T($download->title);?></h4>
+      <small><?= T(date('Y.m.d', strtotime($download->ctime)));?></small>
+    </a>
+  </div>
+<?php endforeach;?>
+</div>

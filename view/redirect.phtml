@@ -1,0 +1,7 @@
+<script>
+<?php if ($url) : ?>
+window.location.reload('<?= H($url) ?>')
+<?php else: ?>
+window.location.reload();
+<?php endif; ?>
+</script>
