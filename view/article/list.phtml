@@ -1,23 +1,7 @@
-<?php
-    $_setActive = function($selected) use($type) {
-      return $type == $selected ? 'active' : '';
-    };
-?>
 <div class="container public-list">
-  <div class="col-md-2 article-left"> 
-    <div class="text-center" ><?= T("信息发布");?></div>
-    <a href="article/list/<?= \Gini\ORM\Article::TYPE_SCHOOL?>" class="<?= $_setActive(\Gini\ORM\Article::TYPE_SCHOOL)?>">
-      <h4><?= T("学校通知");?></h4>
-    </a>
-    <div style="margin: 0 24px;border: 1px dashed #2b458c;"></div>
-    <a href="article/list/<?= \Gini\ORM\Article::TYPE_LAB?>" class="<?= $_setActive(\Gini\ORM\Article::TYPE_LAB)?>">
-      <h4><?= T("实验室动态");?></h4>
-    </a>
-  </div>
-  <div class="col-md-9 article-right">
+  <div class="col-md-12 article-right">
     <ol class="breadcrumb" style="margin-bottom: 7px;">
-      <li><a href="article/list/<?= \Gini\ORM\Article::TYPE_SCHOOL?>"><?= T('信息发布');?></a></li>
-      <li class="active"><?= T(\Gini\ORM\Article::$TYPE[$type]);?></li>
+      <li><a href="article/list/<?= $type?>"><?= T(\Gini\ORM\Article::$TYPE[$type]);?></a></li>
     </ol>
     <?php foreach($articles as $article) :?>
       <div class="media">

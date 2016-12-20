@@ -26,9 +26,19 @@ class Equipment extends Layout\Home {
 
     function actionList($tag = 0) {
         $form = $this->form('post');
+        $tagName = $form['tag_name'];
         $searchtext = $form['search_text'];
+        if ($tagName) {
+            $tags = \Gini\Controller\CGI\AJAX\Equipment::getTags();
+            foreach ($tags as $k => $t) {
+                if (strstr($t['name'], $tagName)) {
+                    $tag = $k;
+                    break;
+                }
+            }
+        }
         //记录查询关键词
-        if ($searchtext) {
+        elseif ($searchtext) {
             $searchCount = a('search')->whose('name')->is($searchtext);
             if (!$searchCount->id) {
                 $searchCount = a('search');

@@ -16,16 +16,8 @@
     </div>
     <div class="col-md-9">
       <div class="btn-group pull-right">
-        <a href="admin/link" class="btn btn-default">
-          <?= T('全部') ?>
-        </a>
-        <?php foreach (\Gini\ORM\Link::$TYPE as $key => $type) :?>
-          <a href="admin/link/<?= H($key) ?>" class="btn btn-default">
-            <?= T($type) ?>
-          </a>
-        <?php endforeach;?>
-        <a href="gini-ajax:ajax/link/add" class="btn btn-default" style="height: 34px;">
-          <i class="fa fa-plus" aria-hidden="true" style="line-height: 22px;"></i>
+        <a href="gini-ajax:ajax/link/add" class="btn btn-default">
+          <i class="fa fa-plus" aria-hidden="true"></i>
         </a>
       </div>
     </div>

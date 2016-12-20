@@ -15,12 +15,9 @@ class Index extends Layout\Home {
 		}
     	$searchs = array_pad($searchs, $searchLength, ['name' => '--', 'count' => 0]);
 
-        $members = those('link')->whose('type')->is(\Gini\ORM\Link::TYPE_MEMBER)->limit(8);
-
         $this->view->body->content = V('home/homepage', [
             'pics' => $pics,
             'searchs' => $searchs,
-            'members' => $members,
         ]);
     }
 

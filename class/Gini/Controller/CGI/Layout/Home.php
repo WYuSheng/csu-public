@@ -12,7 +12,7 @@ class Home extends Layout {
             $route = 'index';
         }
         else {
-            $route = $route[0];
+            $route = $route;
         }
         $links = those('link')->whose('type')->is(\Gini\ORM\Link::TYPE_LINK)->limit(5);
         

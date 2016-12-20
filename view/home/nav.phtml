@@ -1,6 +1,10 @@
 <?php
-    $_setActive = function($selected) use($route) {
-      return $route == $selected ? 'active' : '';
+    $_setActive = function($selected, $index = 0) use($route) {
+      $route1 = is_array($route) ? $route[0] : $route ;
+      if ($route1 == 'article' && $selected == 'article') {
+        return $index == $route[2] ? 'active' : '';
+      }
+      return $route1 == $selected ? 'active' : '';
     };
 ?>
 <nav class="navbar navbar-default" role="navigation">
@@ -10,14 +14,14 @@
       <ul class="nav navbar-nav">
         
         <li class="<?= $_setActive('index')?>"><a href=""><?= T('首页') ?></a></li>
-        <li class="<?= $_setActive('member')?>"><a href="member/list"><?= T('平台介绍') ?></a></li>
+        <li class="<?= $_setActive('article', 0)?>"><a href="article/list/0"><?= T('平台介绍') ?></a></li>
         <li class="<?= $_setActive('equipment')?>"><a href="equipment/list"><?= T('仪器列表') ?></a></li>
-        <li class="<?= $_setActive('')?>"><a href=""><?= T('培训交流') ?></a></li>
-        <li class="<?= $_setActive('article')?>"><a href="article/list"><?= T('通知公告') ?></a></li>
-        <li class="<?= $_setActive('datum')?>"><a href="datum/list"><?= T('服务流程') ?></a></li>
-        <li class="<?= $_setActive('rule')?>"><a href="rule/list"><?= T('规章制度') ?></a></li>
-        <li class="<?= $_setActive('question')?>"><a href="question/list"><?= T('问题解答') ?></a></li>
-        <li class="<?= $_setActive('')?>"><a href=""><?= T('联系我们') ?></a></li>
+        <li class="<?= $_setActive('article', 2)?>"><a href="article/list/2"><?= T('培训交流') ?></a></li>
+        <li class="<?= $_setActive('article', 3)?>"><a href="article/list/3"><?= T('通知公告') ?></a></li>
+        <li class="<?= $_setActive('article', 4)?>"><a href="article/list/4"><?= T('服务流程') ?></a></li>
+        <li class="<?= $_setActive('article', 5)?>"><a href="article/list/5"><?= T('规章制度') ?></a></li>
+        <li class="<?= $_setActive('article', 6)?>"><a href="article/list/6"><?= T('问题解答') ?></a></li>
+        <li class="<?= $_setActive('article', 1)?>"><a href="article/list/1"><?= T('联系我们') ?></a></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->

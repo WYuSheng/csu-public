@@ -8,21 +8,21 @@ class Article extends Layout\Home {
         $this->redirect('article/list');
     }
 
-    function actionList($type = 0) {
-        if (!array_key_exists($type, \Gini\ORM\Article::$TYPE)) {
+    function actionList($type = 1) {
+        if (array_key_exists($type, \Gini\ORM\Article::$TYPE)) {
+            $view = 'list';
+            $articles = those('article')->whose('type')->is($type)->orderBy('ctime','desc');
+        }
+        elseif (array_key_exists($type, \Gini\ORM\Article::$PAGE_TYPE)) {
+            $view = 'list2';
+            $articles = a('article')->whose('type')->is($type);
+        }
+        else {
             $this->redirect('error/404');
         }
 
-        if ($type == \Gini\ORM\Article::TYPE_QUES) {
-            $this->redirect('question/list');
-        } 
-        elseif ($type == \Gini\ORM\Article::TYPE_RULE) {
-            $this->redirect('rule/list');
-        }
 
-        $articles = those('article')->whose('type')->is($type)->orderBy('ctime','desc');
-
-        $this->view->body->content = V('article/list', [
+        $this->view->body->content = V('article/'.$view, [
             'type' => $type,
             'articles' => $articles
         ]);
@@ -32,18 +32,6 @@ class Article extends Layout\Home {
         $article = a('article', $id);
         if (!$article->id) {
             $this->redirect('error/404');
-        }
-
-        $type = $article->type;
-        switch ($type) {
-            case \Gini\ORM\Article::TYPE_QUES:
-                $this->redirect('question/content/' . $id);
-                break;
-            case \Gini\ORM\Article::TYPE_RULE:
-                $this->redirect('rule/content/' . $id);
-                break;
-            default:
-                break;
         }
 
          $this->view->body->content = V('article/content', [

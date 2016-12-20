@@ -7,12 +7,15 @@ nav:
     - name: 用户管理
       href: admin/user
       fa: fa fa-users
+    - name: 平台介绍
+      href: admin/page/0
+      fa: fa fa-university
     - name: 信息发布
       href: admin/article
       fa: fa fa-file
-    - name: 技术资料
-      href: admin/download
-      fa: fa fa-download
+    - name: 联系我们
+      href: admin/page/1
+      fa: fa fa-phone
     - name: 图片轮播
       href: admin/image
       fa: fa fa-picture-o

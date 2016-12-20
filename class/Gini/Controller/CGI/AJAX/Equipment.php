@@ -7,7 +7,7 @@ class Equipment extends \Gini\Controller\CGI {
         $tags = self::getTags();
         return \Gini\IoC::construct('\Gini\CGI\Response\JSON', json_encode($tags));
     }
-    private static function getTags() {
+    static function getTags() {
         $cache = \Gini\Cache::of('csu_public');
         $cacheKey = 'tags';
         $tags = $cache->get($cacheKey);

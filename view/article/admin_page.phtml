@@ -1,0 +1,42 @@
+<div class="container">
+  <h2 style="margin-bottom: 20px;">
+    <small><?= H(\Gini\Config::get('site.short'))?></small>
+    <br />
+    <?= T($article->title) ?>
+  </h2>
+
+  <div>
+  <form id="article" class="form-horizontal" role="form" method="post">
+    <textarea id="editor" name="content"><?= H($article->content);?></textarea>
+    <div style="margin-top: 10px;">
+      <button type="submit" class="btn btn-success" form="article"><?= T('保存') ?></button>
+    </div>
+  </form>
+  </div>
+</div>
+<script data-ajax>
+require(['main', 'kindeditor', 'css!../css/default'], function($, K) {
+  var text_count = 0
+  KindEditor.create('#editor', {
+    width: '100%',
+    height: '400px',
+    items: [
+      'source', '|',
+      'justifyleft', 'justifycenter', 'justifyright',
+      'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', '|', 'fullscreen',
+      'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+      'italic', 'underline', 'strikethrough', 'lineheight', '/',
+      'link', 'unlink',
+      'image', 'multiimage',
+      'insertfile', 'table'
+    ],
+    resizeType: 1,
+    uploadJson: 'ajax/editor/upload',
+    basePath: 'assets/',
+    themesPath: 'assets/css/',
+    afterChange : function() {
+      text_count = this.count('text');
+    }
+  })
+})
+</script>

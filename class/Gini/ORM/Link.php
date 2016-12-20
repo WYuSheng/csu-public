@@ -14,11 +14,11 @@ class Link extends Object
     ];
 
     const TYPE_LINK = 0;
-    const TYPE_MEMBER = 1;
+    // const TYPE_MEMBER = 1;
 
     public static $TYPE = [
         self::TYPE_LINK => '友情链接',
-        self::TYPE_MEMBER => '平台成员',
+        // self::TYPE_MEMBER => '平台成员',
     ];
 
     function save() {

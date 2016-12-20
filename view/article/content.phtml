@@ -1,7 +1,6 @@
 <div class="container public-list" style="min-height: 768px;">
   <ol class="breadcrumb" style="margin-bottom: 7px;">
-    <li><a href="article/list/<?= \Gini\ORM\Article::TYPE_SCHOOL?>"><?= T('信息发布');?></a></li>
-    <li><a href="article/list/<?= \Gini\ORM\Article::TYPE_SCHOOL?>"><?= T(\Gini\ORM\Article::$TYPE[$article->type]);?></a></li>
+    <li><a href="article/list/<?= $type?>"><?= T(\Gini\ORM\Article::$TYPE[$type]);?></a></li>
     <li class="active"><?= T('详情');?></li>
   </ol>
     <div class="container">
