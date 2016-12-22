@@ -7,6 +7,12 @@ class Equipment extends \Gini\Controller\CGI {
         $tags = self::getTags();
         return \Gini\IoC::construct('\Gini\CGI\Response\JSON', json_encode($tags));
     }
+
+    public function actionGroups () {
+        $groups = self::getGroups();
+        return \Gini\IoC::construct('\Gini\CGI\Response\JSON', json_encode($groups));
+    }
+
     static function getTags() {
         $cache = \Gini\Cache::of('csu_public');
         $cacheKey = 'tags';
@@ -26,7 +32,7 @@ class Equipment extends \Gini\Controller\CGI {
         return $tags;
     }
 
-    private static function getGroups() {
+    static function getGroups() {
         $cache = \Gini\Cache::of('csu_public');
         $cacheKey = 'groups';
         $groups = $cache->get($cacheKey);
@@ -35,6 +41,7 @@ class Equipment extends \Gini\Controller\CGI {
             $rpc = \Gini\IoC::construct('\Gini\RPC', $lims['api']);
 
             $groups = $rpc->equipment->getEquipmentGroups($criteria);
+            $groups = current($groups)['children'];
             $cache->set($cacheKey, $groups, 1800);
         }
         return $groups;
@@ -79,7 +86,7 @@ class Equipment extends \Gini\Controller\CGI {
             }
         }
 
-        $form['tag'] ? ($criteria['cat'] = $form['tag']) : '';
+        $form['tag'] ? ($criteria['group'] = $form['tag']) : '';
         $start = $form['start'] ? : 0;
         $num = $form['num'] ? : 10;
 

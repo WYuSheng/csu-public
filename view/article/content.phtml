@@ -1,10 +1,10 @@
-<div class="container public-list" style="min-height: 768px;">
+<div class="container public-list" style="min-height: 768px;padding: 0px 15px 0px 44px;">
   <ol class="breadcrumb" style="margin-bottom: 7px;">
-    <li><a href="article/list/<?= $type?>"><?= T(\Gini\ORM\Article::$TYPE[$type]);?></a></li>
+    <li><a href="article/list/<?= $article->type?>"><?= T(\Gini\ORM\Article::$TYPE[$article->type]);?></a></li>
     <li class="active"><?= T('详情');?></li>
   </ol>
-    <div class="container">
-        <h3 style="text-align:center;line-height:50px"><?= H($article->title);?></h3>
-        <p><?= $article->content;?></p>
-    </div>
+  <div class="container" style="width: 950px;">
+      <h3 style="text-align:center;line-height:50px"><?= H($article->title);?></h3>
+      <p><?= $article->content;?></p>
+  </div>
 </div>

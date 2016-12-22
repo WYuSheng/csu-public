@@ -10,7 +10,8 @@ class Article extends \Gini\Controller\CGI\Layout\Admin {
         }
         
         $form = $this->form('post');
-        $articles = those('article');
+        $articles = those('article')->whose('type')->isNot(\Gini\ORM\Article::TYPE_INSTRU)
+            ->andWhose('type')->isNot(\Gini\ORM\Article::TYPE_CONNEC);;
         if ($form['keyword']) {
             $articles = $articles->whose('title')->contains($form['keyword']);
         }

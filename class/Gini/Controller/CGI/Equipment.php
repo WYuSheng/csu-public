@@ -29,9 +29,9 @@ class Equipment extends Layout\Home {
         $tagName = $form['tag_name'];
         $searchtext = $form['search_text'];
         if ($tagName) {
-            $tags = \Gini\Controller\CGI\AJAX\Equipment::getTags();
+            $tags = \Gini\Controller\CGI\AJAX\Equipment::getGroups();
             foreach ($tags as $k => $t) {
-                if (strstr($t['name'], $tagName)) {
+                if (strstr($t, $tagName)) {
                     $tag = $k;
                     break;
                 }

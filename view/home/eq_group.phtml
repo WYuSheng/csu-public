@@ -1,10 +1,10 @@
 <div class="tags-div col-sm-4">
   <h3 class="homepage-title" style="margin-bottom: 17px;font-size: 18px;display: inline-block;">
-    <?= T('仪器分类') ?>
+    <?= T('组织机构') ?>
   </h3>
   <form class="form-inline" role="form" method="post" action="equipment/list">
 	  <div class="form-group">
-	    <input type="text" name="tag_name" class="form-control search-input" id="tag-search" placeholder="组织机构名称" style="width: 203px;margin-right: 10px;">
+	    <input type="text" name="tag_name" class="form-control search-input" id="tag-search" placeholder="名称" style="width: 203px;margin-right: 10px;">
 	  </div>
 	  <button type="submit" class="btn search-btn"><?= H(T('搜索'))?></button>
 	</form>
@@ -15,12 +15,12 @@
 require(['main'], function ($) {
   var	num = 0
 
-  $.post('ajax/equipment/tags', function (e) {
+  $.post('ajax/equipment/groups', function (e) {
     var tags = $.parseJSON(e)
     $.each(tags, function (index, item) {
       var  a = $(document.createElement('a'))
       a.attr('href', 'equipment/list/' + index)
-      a.text(item.name)
+      a.text(item)
       a.append('<i class="fa fa-angle-right" aria-hidden="true"></i>')
       $('div.tags-list').append(a)
       num++

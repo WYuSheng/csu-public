@@ -1,9 +1,9 @@
-<div class="container public-list">
+<div class="container public-list" style="padding-left: 45px;">
   <div class="col-md-2 equipment-left"> 
-    <div class="text-center" ><?= T("仪器分类");?></div>
+    <div class="text-center" ><?= T("组织机构");?></div>
     <a href="equipment/list" class="<?=empty($group)?'active':''?>"><?= T("全部仪器");?></a>
   </div>
-  <div class="col-md-9 equipment-detail">
+  <div class="col-md-9 equipment-detail" style="width: 78%;">
     <ol class="breadcrumb" style="margin: 20px 42px;">
       <li><a href="equipment/list"><?= T('开放仪器');?></a></li>
       <li class="active"><?= T('仪器详情');?></li>
@@ -66,12 +66,12 @@ require(['main'], function ($) {
 
   var start = 0
 
-  $.post('ajax/equipment/tags', function (e) {
+  $.post('ajax/equipment/groups', function (e) {
     var tags = $.parseJSON(e)
     $.each(tags, function (index, item) {
       var  a = $(document.createElement('a'))
       a.attr('href', 'equipment/list/' + index)
-      a.text(item.name)
+      a.text(item)
       if (group == index) {
         a.addClass('active')
       }

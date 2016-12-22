@@ -23,6 +23,7 @@ class Article extends Object
     const TYPE_SERVI = 4;
     const TYPE_RULES = 5;
     const TYPE_QUEST = 6;
+    const TYPE_GUIDE = 7;
 
     public static $PAGE_TYPE = [
         self::TYPE_INSTRU => '平台介绍',
@@ -33,7 +34,8 @@ class Article extends Object
         self::TYPE_NOTIC => '通知公告',
         self::TYPE_SERVI => '服务流程',
         self::TYPE_RULES => '规章制度',
-        self::TYPE_QUEST => '问题解答'
+        self::TYPE_QUEST => '问题解答',
+        self::TYPE_GUIDE => '服务指南'
     ];
 
     function save() {
