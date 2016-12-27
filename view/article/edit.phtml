@@ -13,8 +13,11 @@
               <label class="control-label"><?= T('标题') ?></label>
             </div>
             <div class="row">
-              <div class="col-md-9">
+              <div class="col-md-6">
                 <input name="title" type="text" class="form-control" placeholder="<?= T('请输入标题') ?>" value="<?= H($article->title) ?>">
+              </div>
+              <div class="col-md-3">
+                <input id="datetimepicker" name="ctime" type="text" class="form-control" value="<?= explode(' ', $article->ctime)[0] ?>">
               </div>
               <div class="col-md-3">
                 <select class="form-control" name="type">
@@ -48,7 +51,17 @@
 </div>
 
 <script data-ajax>
-require(['main', 'kindeditor', 'css!../css/default'], function($, K) {
+require(['main', 'kindeditor', 'css!../css/default',
+    'bootstrap-datetimepicker', 'locales/bootstrap-datetimepicker.zh-CN', 'css!../css/datetimepicker'], 
+  function($, K) {
+  $('#datetimepicker').datetimepicker({
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    minView: 2,
+    maxView: 3,
+    todayBtn: true,
+    language: 'zh-CN'
+  })
   KindEditor.create('#editor', {
     width: '100%',
     height: '400px',

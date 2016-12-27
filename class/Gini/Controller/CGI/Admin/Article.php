@@ -38,6 +38,7 @@ class Article extends \Gini\Controller\CGI\Layout\Admin {
 
                 $article = a('article');
                 $article->title = $form['title'];
+                $article->ctime = $form['ctime'];
                 $article->content = $form['content'];
                 $article->type = $form['type'];
 
@@ -71,6 +72,7 @@ class Article extends \Gini\Controller\CGI\Layout\Admin {
                 $validator->done();
 
                 $article->title = $form['title'];
+                $article->ctime = $form['ctime'];
                 $article->content = $form['content'];
                 $article->type = $form['type'];
 

@@ -3,7 +3,7 @@
     <li><a href="article/list/<?= $type?>"><?= T(\Gini\ORM\Article::$PAGE_TYPE[$type]);?></a></li>
     <li class="active"><?= T('详情');?></li>
   </ol>
-    <div class="container">
+    <div class="container" style="width: 950px;">
         <h3 style="text-align:center;line-height:50px"><?= H($articles->title);?></h3>
         <p><?= $articles->content;?></p>
     </div>

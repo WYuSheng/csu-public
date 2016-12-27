@@ -69,15 +69,6 @@ class Equipment extends \Gini\Controller\CGI {
                         $criteria['group'] = $key;
                         break;
                     }
-                    else {
-                        foreach ($value['children'] as $k => $v) {
-                            if (strstr($v, $searchtext)) {
-                                $criteria['group'] = $k;
-                                break;
-                            }
-                        }
-                        if ($criteria['group']) break; //如果children中已找到相应group，外层break
-                    }
                 }
             }
 

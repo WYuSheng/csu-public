@@ -7,7 +7,7 @@ class Index extends Layout\Home {
     function __index() {
         $pics = those('image');
 
-        $searchLength = 18;
+        $searchLength = 16;
         $search_db = those('search')->orderBy('count', 'd')->limit($searchLength);
         $searchs = [];
 		foreach ($search_db as $value) {

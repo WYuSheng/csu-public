@@ -47,7 +47,7 @@
         <td><?= H($index) ?></td>
         <td><?= H($article->title) ?></td>
         <td><?= T(\Gini\ORM\Article::$TYPE[$article->type]) ?></td>
-        <td><?= H($article->ctime) ?></td>
+        <td><?= H(explode(' ', $article->ctime)[0]) ?></td>
         <td>
           <div class="btn-group">
             <button type="button" class="btn btn-warning ">

@@ -1,7 +1,9 @@
 <?php
     $_setActive = function($selected, $index = 0) use($route) {
       $route1 = is_array($route) ? $route[0] : $route ;
+      $route2 = is_array($route) ? $route[1] : '' ;
       if ($route1 == 'article' && $selected == 'article') {
+        if ($route2 == 'content') return;
         return $index == $route[2] ? 'active' : '';
       }
       return $route1 == $selected ? 'active' : '';
