@@ -16,7 +16,8 @@ require(['main'], function ($) {
         img2 = $(document.createElement('img')),
         span = $(document.createElement('span')),
         divchild = $(document.createElement('div'))
-        divchild2 = $(document.createElement('div'))
+        divchild2 = $(document.createElement('div')),
+        a = $(document.createElement('a'))
 
       div.addClass('eq-rank')
       img.attr('src',item.icon128_url)
@@ -29,15 +30,17 @@ require(['main'], function ($) {
       divchild2.addClass('text-right');
       divchild2.text(item.use + '次')
 
-      div.append(img)
+      a.append(img)
       img2.attr('src',"assets/img/flag.png")
       img2.addClass('rank')
       span.text('0' + (index + 1))
       span.addClass('rank')
-      div.append(img2)
-      div.append(span)
-      div.append(divchild)
-      div.append(divchild2)
+      a.append(img2)
+      a.append(span)
+      a.append(divchild)
+      a.append(divchild2)
+      a.attr('href', 'equipment/' + item.id)
+      div.append(a)
 
       $('#eq_rank').append(div)
     })
