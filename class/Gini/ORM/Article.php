@@ -31,7 +31,7 @@ class Article extends Object
     public static $TYPE = [
         self::TYPE_COMMU => '培训交流',
         self::TYPE_NOTIC => '通知公告',
-        self::TYPE_SERVI => '服务流程',
+        self::TYPE_SERVI => '服务指南',
         self::TYPE_RULES => '规章制度',
         self::TYPE_QUEST => '问题解答'
     ];
