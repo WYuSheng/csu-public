@@ -50,16 +50,12 @@
         <td><?= H(explode(' ', $article->ctime)[0]) ?></td>
         <td>
           <div class="btn-group">
-            <button type="button" class="btn btn-warning ">
-              <a href="gini-ajax:ajax/article/edit/<?= $article->id?>" style="color:#FFF">
-                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              </a>
-            </button>
-            <button type="button" class="btn btn-danger ">
-              <a href="gini-ajax:ajax/article/delete/<?= $article->id?>" style="color:#FFF" >
-                <i class="fa fa-times" aria-hidden="true"></i>
-              </a>
-            </button>
+            <a class="btn btn-warning" href="gini-ajax:ajax/article/edit/<?= $article->id?>" style="color:#FFF">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </a>
+            <a class="btn btn-danger" href="gini-ajax:ajax/article/delete/<?= $article->id?>" style="color:#FFF" >
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
           </div>
         </td>
       </tr>

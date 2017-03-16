@@ -36,11 +36,9 @@
         <td><?= H($download->ctime) ?></td>
         <td>
           <div class="btn-group">
-            <button type="button" class="btn btn-danger">
-              <a href="gini-ajax:ajax/download/delete/<?= $download->id?>" style="color:#FFF">
-                <i class="fa fa-times" aria-hidden="true"></i>
-              </a>
-            </button>
+            <a class="btn btn-danger" href="gini-ajax:ajax/download/delete/<?= $download->id?>" style="color:#FFF">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
           </div>
         </td>
       </tr>
