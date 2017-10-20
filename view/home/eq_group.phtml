@@ -3,6 +3,11 @@
     <?= T('开放平台成员') ?>
   </h3>
   <form class="form-inline" role="form" method="post" action="equipment/list">
+    <?php
+      $form_token = 'index_eqgroup_'. uniqid();
+      $_SESSION['index_eqgroup'] = $form_token;
+    ?>
+    <input type="hidden" name="g_token" value="<?= $form_token?>">
 	  <div class="form-group">
 	    <input type="text" name="tag_name" class="form-control search-input" id="tag-search" placeholder="名称" style="width: 203px;margin-right: 10px;">
 	  </div>

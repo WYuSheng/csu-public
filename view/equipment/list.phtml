@@ -6,7 +6,7 @@
   <div class="col-md-9 equipment-right">
     <ol class="breadcrumb" style="margin: 20px 42px;">
       <li><a href="equipment/list"><?= T('开放仪器');?></a></li>
-      <li class="active"><?= T('全部仪器').($searchtext ? ' [关键词：'.$searchtext.']' : '');?></li>
+      <li class="active"><?= T('全部仪器').(H($searchtext) ? ' [关键词：'.H($searchtext).']' : '');?></li>
     </ol>
     <div class="row equ-list" style="overflow-y: scroll;height: 545px;">
       <div class="clearfix">
@@ -17,7 +17,7 @@
 <script>
 require(['main'], function ($) {
   var tag = <?= $tag ? : 0 ?>;
-  var searchtext = "<?= $searchtext ? : '' ?>"
+  var searchtext = "<?= H($searchtext) ? : '' ?>"
 
   var start = 0
   var canLoad = false

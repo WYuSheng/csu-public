@@ -13,6 +13,7 @@ class Login extends Layout\Login {
         $form = $this->form('post');
 
         if ($form) {
+            if (!$form['token'] || $form['token'] != $_SESSION['index_login']) $this->redirect('error/401');
             $validator = new \Gini\CGI\Validator;
             try {
                 $validator

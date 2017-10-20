@@ -8,6 +8,11 @@
       <div class="modal-body">
         <?= V('form/error', ['form' => $form]) ?>
         <form id="login" role="form" method="post" action="login">
+          <?php
+            $form_token = 'index_login_'. uniqid();
+            $_SESSION['index_login'] = $form_token;
+          ?>
+          <input type="hidden" name="token" value="<?= $form_token?>">
           <div class="form-group" style="margin-bottom: 12px;">
             <label for="exampleInputEmail1"><?= T('账号') ?></label>
             <input name="name" type="text" class="form-control" placeholder="<?= T('请输入账号') ?>">

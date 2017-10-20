@@ -26,6 +26,10 @@ class Equipment extends Layout\Home {
 
     function actionList($tag = 0) {
         $form = $this->form('post');
+        if ($form) {
+            if ($form['s_token'] != $_SESSION['index_search'] && $form['g_token'] != $_SESSION['index_eqgroup']) $this->redirect('error/401');
+        }
+
         $tagName = $form['tag_name'];
         $searchtext = $form['search_text'];
         if ($tagName) {
