@@ -5,9 +5,9 @@
   <form id="search_form" class="form-inline" role="form" style="width: 400px;margin-right: 0px;" method="post" action="equipment/list">
     <?php
       $form_token = 'index_search_'. uniqid();
-      $_SESSION['index_search'] = $form_token;
+      $_SESSION['index_search'] = $_SESSION['index_search'] ? : $form_token;
     ?>
-    <input type="hidden" name="s_token" value="<?= $form_token?>">
+    <input type="hidden" name="s_token" value="<?= $_SESSION['index_search']?>">
     <div class="form-group">
       <input type="text" class="form-control search-input" id="tag-search" name="search_text" placeholder="名称" style="width: 275px;margin-right: 10px;">
     </div>
