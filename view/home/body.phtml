@@ -1,11 +1,14 @@
 <div class="container-fluid container-home-header">
 	<div class="container">
 	  <img src="assets/img/logo.png" style="z-index: 1;position: absolute;top: 17px;">
-	  <!-- <img src="assets/img/logopic.png" style="z-index: 1;float: right;"> -->
 	</div>
 </div>
-<div style="z-index: 1;position: fixed;right: 0px;bottom: 200px;">
-	<h5 style="margin: 0;text-align: center;font-size: 17px;background-color: #FFF;"><?= H(T('请扫码预约！'))?></h5>
+<div style="z-index: 1;position: fixed;right: 0px;bottom: 400px;">
+	<h5 style="margin: 0;text-align: center;font-size: 15px;background-color: #FFF;"><?= H(T('扫码进入中南e行'))?></h5>
+	<img src="assets/img/qfcode.png" style="width: 110px;">
+</div>
+<div style="z-index: 1;position: fixed;right: 0px;bottom: 100px;">
+	<h5 style="margin: 0;text-align: center;font-size: 15px;background-color: #FFF;"><?= H(T('扫码进入预约系统'))?></h5>
 	<img src="assets/img/qrcod.jpg" style="width: 120px;">
 </div>
 <?= V('home/nav', ['route' => $route]) ?>
