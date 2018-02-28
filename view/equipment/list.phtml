@@ -16,7 +16,7 @@
 </div>
 <script>
 require(['main'], function ($) {
-  var tag = <?= $tag ? : 0 ?>;
+  var tag = <?= H($tag ? : 0) ?>;
   var searchtext = "<?= H($searchtext) ? : '' ?>"
 
   var start = 0
