@@ -25,7 +25,7 @@ require(['main'], function ($) {
     $.each(tags, function (index, item) {
       var  a = $(document.createElement('a'))
       a.attr('href', 'equipment/list/' + index)
-      a.text(item)
+      a.text(item.name)
       a.append('<i class="fa fa-angle-right" aria-hidden="true"></i>')
       $('div.tags-list').append(a)
       num++
