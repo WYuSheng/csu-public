@@ -44,11 +44,12 @@ class Equipment extends Layout\Home {
         //记录查询关键词
         elseif ($searchtext) {
             $searchCount = a('search')->whose('name')->is($searchtext);
-            if (!$searchCount->id) {
+            if ($searchCount->id) {
                 $searchCount = a('search');
                 $searchCount->name = $searchtext;
+                $searchCount->increase();
             }
-            $searchCount->increase();
+
         }
         
         $this->view->body->content = V('equipment/list', [
