@@ -41,12 +41,19 @@ class Equipment extends Layout\Home {
                 }
             }
         }
+
         //记录查询关键词
         elseif ($searchtext) {
-            $searchCount = a('search')->whose('name')->is($searchtext);
-            if ($searchCount->id) {
-                $searchCount = a('search');
-                $searchCount->name = $searchtext;
+            $criteria['searchtext'] = $searchtext;
+            $lims = \Gini\Config::get('lims');
+            $rpc = \Gini\IoC::construct('\Gini\RPC', $lims['api']);
+            $result = $rpc->equipment->searchEquipments($criteria);
+            if($result['total']){
+                $searchCount = a('search')->whose('name')->is($searchtext);
+                if (!$searchCount->id) {
+                    $searchCount = a('search');
+                    $searchCount->name = $searchtext;
+                }
                 $searchCount->increase();
             }
 
